@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import Header from './components/Header'
+import About from './components/About'
+import Resume from './components/Resume'
+import Work from './components/Work'
 import Footer from './components/Footer'
 
 class App extends Component {
@@ -23,6 +26,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <About />
+        <Resume />
+        <Work />
         <Footer />
       </div>
     )
