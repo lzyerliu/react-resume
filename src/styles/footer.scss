@@ -1,4 +1,27 @@
 .footer{
-  height: 360px;
   background-color: #191919;
+  .footer-wrap{
+    margin: 0 auto;
+    padding: 96px 0 60px;
+    .telave{
+      color: #303030;
+      .links{
+        li{
+          margin: 0 20px;
+          line-height: 18px;
+          a{
+            color: #525252;
+            i{
+              font-size: 36px;
+            }
+          }
+        }
+      }
+      .copyright{
+        font-size: 15px;
+        li{
+        }
+      }
+    }
+  }
 }
