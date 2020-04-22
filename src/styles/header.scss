@@ -63,6 +63,7 @@
     }
     .nav-item.active{
       color: #F06000;
+      animation: nav_item_active_color .2s cubic-bezier(.23,1,.02,.85) alternate;
     }
     .nav-md{
       position: absolute;
@@ -190,5 +191,22 @@
   100% {
     top: 0;
     background: rgba(34, 34, 34, 0.8);
+  }
+}
+
+@keyframes nav_item_active_color {
+  0% {
+    color: #fff;
+  }
+  100% {
+    color: #F06000;
+  }
+}
+@-webkit-keyframes nav_item_active_color {
+  0% {
+    color: #fff;
+  }
+  100% {
+    color: #F06000;
   }
 }

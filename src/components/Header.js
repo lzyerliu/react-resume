@@ -33,6 +33,15 @@ class Header extends Component {
       }
     })
     window.addEventListener('scroll', this.pageScroll.bind(this))
+    // console.log(window.location.hash.replace(/#/, ''))
+    let hashStr = window.location.hash
+    if (hashStr) {
+      let curNav = `_${window.location.hash.replace(/#/, '')}`
+      this.setState({
+        currentNav: curNav
+      })
+      this.scrollToAnchor(curNav)
+    }
   }
 
   componentWillUnmount() {
@@ -55,6 +64,11 @@ class Header extends Component {
     }
   }
 
+  /**
+   * mobile下，点击显隐nav
+   * @param {*} str 
+   * @param {*} bool 
+   */
   toggleNavInMd(str, bool) {
     // console.log(str, bool)
     this.setState({
@@ -62,6 +76,10 @@ class Header extends Component {
     })
   }
 
+  /**
+   * 页面滚动
+   * @param {*} event 
+   */
   pageScroll(event) {
     // 滚动的高度
     let scrollTop = (event.srcElement ? event.srcElement.documentElement.scrollTop : false) || window.pageYOffset || (event.srcElement ? event.srcElement.body.scrollTop : 0)
@@ -86,6 +104,31 @@ class Header extends Component {
       showTopUp: tempTopUp,
       scrollDownPart: tempScrollDownPart
     })
+    // console.log(this.isInViewPortOfOne(document.getElementById('_home')))
+    // console.log(this.isInViewPortOfOne(document.getElementById('_about')))
+    // console.log(this.isInViewPortOfOne(document.getElementById('_resume')))
+    // console.log(this.isInViewPortOfOne(document.getElementById('_work')))
+    // console.log(this.isInViewPortOfOne(document.getElementById('_contact')))
+    // console.log('----------------------------------')
+  }
+
+  /**
+   * 判断元素是否在可视窗口，（备注：还有bug，还不能使用）
+   * @param {*} el 
+   */
+  isInViewPortOfOne(el) {
+    // 窗口可视高度
+    let viewPortHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    // 元素顶部高度
+    let offsetTop = el.offsetTop
+    //元素高度
+    let offsetHeight = el.offsetHeight
+    // 滚动距离
+    let scrollTop = document.documentElement.scrollTop
+    //判断是否在工作窗口内
+    let top = (offsetTop + offsetHeight) - scrollTop
+
+    return top > 0 && top < viewPortHeight
   }
 
   render() {
