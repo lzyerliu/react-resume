@@ -97,7 +97,7 @@ class Header extends Component {
     if (scrollTop >= clientHeight) {
       tempTopUp = true
     }
-    if (scrollTop >= clientHeight/2) {
+    if (scrollTop >= clientHeight/3) {
       tempScrollDownPart = true
     }
     this.setState({
@@ -108,27 +108,31 @@ class Header extends Component {
     // console.log(this.isInViewPortOfOne(document.getElementById('_about')))
     // console.log(this.isInViewPortOfOne(document.getElementById('_resume')))
     // console.log(this.isInViewPortOfOne(document.getElementById('_work')))
+    // console.log(this.isInViewPortOfOne(document.getElementById('_intro')))
     // console.log(this.isInViewPortOfOne(document.getElementById('_contact')))
     // console.log('----------------------------------')
+    // let tempNav = '_home'
+    // tempNav = this.isInViewPortOfOne(document.getElementById('_home')) ? '_home' : tempNav
+    // tempNav = this.isInViewPortOfOne(document.getElementById('_about')) ? '_about' : tempNav
+    // tempNav = this.isInViewPortOfOne(document.getElementById('_resume')) ? '_resume' : tempNav
+    // tempNav = this.isInViewPortOfOne(document.getElementById('_work')) ? '_work' : tempNav
+    // tempNav = this.isInViewPortOfOne(document.getElementById('_intro')) ? '_intro' : tempNav
+    // tempNav = this.isInViewPortOfOne(document.getElementById('_contact')) ? '_contact' : tempNav
+    // this.setState({
+    //   showTopUp: tempTopUp,
+    //   scrollDownPart: tempScrollDownPart,
+    //   currentNav: tempNav
+    // })
   }
 
   /**
    * 判断元素是否在可视窗口，（备注：还有bug，还不能使用）
-   * @param {*} el 
+   * @param {*} el
    */
   isInViewPortOfOne(el) {
-    // 窗口可视高度
-    let viewPortHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-    // 元素顶部高度
-    let offsetTop = el.offsetTop
-    //元素高度
-    let offsetHeight = el.offsetHeight
-    // 滚动距离
-    let scrollTop = document.documentElement.scrollTop
-    //判断是否在工作窗口内
-    let top = (offsetTop + offsetHeight) - scrollTop
-
-    return top > 0 && top < viewPortHeight
+    let scrTop = document.documentElement.scrollTop || document.body.scrollTop;
+    console.log(scrTop)
+    return scrTop > 100 && (!(scrTop > (el.offsetTop + el.offsetHeight) || (scrTop + window.innerHeight) < el.offsetTop))
   }
 
   render() {
@@ -167,7 +171,7 @@ class Header extends Component {
         </div>
 
         <div className={classnames('scrollup', {'hidden': !this.state.showTopUp}, {'block': this.state.showTopUp})}>
-          <a className="smoothscroll" href="#home" onClick={() => this.scrollToAnchor('_home')}><i className="up icon-up-circle"></i></a>
+          <a className="smoothscroll" href="#home" onClick={() => this.scrollToAnchor('_home')}><i className="icon-up-open"></i></a>
         </div>
 
       </header>
