@@ -149,25 +149,9 @@ class Header extends Component {
             <li className={classnames('nav-item', {'active': this.state.currentNav === '_about'})}><a href="#about" onClick={() => this.scrollToAnchor('_about')}>About</a></li>
             <li className={classnames('nav-item', {'active': this.state.currentNav === '_resume'})}><a href="#resume" onClick={() => this.scrollToAnchor('_resume')}>Resume</a></li>
             <li className={classnames('nav-item', {'active': this.state.currentNav === '_work'})}><a href="#work" onClick={() => this.scrollToAnchor('_work')}>Work</a></li>
+            <li className={classnames('nav-item', {'active': this.state.currentNav === '_intro'})}><a href="#intro" onClick={() => this.scrollToAnchor('_intro')}>Intro</a></li>
             <li className={classnames('nav-item', {'active': this.state.currentNav === '_contact'})}><a href="#contact" onClick={() => this.scrollToAnchor('_contact')}>Contact</a></li>
           </ul>
-          {/*!isMd ?
-          <ul className="nav flex flex-row justify-center hidden md:block">
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_home'})}><a href="#home" onClick={() => this.scrollToAnchor('_home')}>Home</a></li>
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_about'})}><a href="#about" onClick={() => this.scrollToAnchor('_about')}>About</a></li>
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_resume'})}><a href="#resume" onClick={() => this.scrollToAnchor('_resume')}>Resume</a></li>
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_work'})}><a href="#work" onClick={() => this.scrollToAnchor('_work')}>Work</a></li>
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_contact'})}><a href="#contact" onClick={() => this.scrollToAnchor('_contact')}>Contact</a></li>
-          </ul>
-          :
-          <ul className="nav nav-md flex flex-col block md:hidden">
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_home'})}><a href="#home" onClick={() => this.scrollToAnchor('_home')}>Home</a></li>
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_about'})}><a href="#about" onClick={() => this.scrollToAnchor('_about')}>About</a></li>
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_resume'})}><a href="#resume" onClick={() => this.scrollToAnchor('_resume')}>Resume</a></li>
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_work'})}><a href="#work" onClick={() => this.scrollToAnchor('_work')}>Work</a></li>
-            <li className={classnames('nav-item', {'active': this.state.currentNav === '_contact'})}><a href="#contact" onClick={() => this.scrollToAnchor('_contact')}>Contact</a></li>
-          </ul>
-          */}
         </nav>
 
         <div className="banner">
